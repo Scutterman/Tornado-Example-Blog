@@ -1,0 +1,9 @@
+<div class="post-title">
+    <h2><a href="/get/post/{{thePost.getId()}}/">{{thePost.getTitle()}}</a><span class="edit-link">(<a href="/post/post/{{thePost.getId()}}/">edit</a>)</span></h2>
+    <p>{{thePost.getText()}}</p>
+    
+    <form action="/delete/post/{{thePost.getId()}}/" method="post">
+        <input type="submit" value="Delete Post" />
+        {% module xsrf_form_html() %}
+    </form>
+</div>

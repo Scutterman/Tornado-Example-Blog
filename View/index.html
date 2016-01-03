@@ -1,0 +1,8 @@
+{% extends "main.html" %}
+
+{% block page_content %}
+    <a href="/post/post/-1/">Create New Post</a>
+    {% for thePost in thePosts %}
+        {% module SinglePost(thePost) %}
+    {% end %}
+{% end %}

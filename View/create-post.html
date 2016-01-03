@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block page_content %}
+    {% include "home-link.html" %}
+    <form action="/post/post/{{thePost.getId()}}/" method="post">
+        <p><input type="text" name="title" value="{{thePost.getTitle()}}" /></p>
+        <p><textarea name="text">{{thePost.getText()}}</textarea></p>
+        {% module xsrf_form_html() %}
+        <input type="submit" value="{{page_title}}" />
+    </form>
+{% end %}
