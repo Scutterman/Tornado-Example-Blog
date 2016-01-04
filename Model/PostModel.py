@@ -79,7 +79,7 @@ class PostModel:
                 del PostModel.posts[id];
                 return "successful";
         except KeyError:
-            pass;
+            return "keyerror";
         
         return "not successful";
     
