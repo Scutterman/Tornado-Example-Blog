@@ -3,6 +3,7 @@ import tornado.web
 import os.path
 import tornado.httpserver
 
+from Controller.NotFoundHandler import NotFoundHandler
 from Controller.IndexHandler import IndexHandler
 from Controller.ViewHandler import ViewHandler
 from Controller.PostHandler import PostHandler
@@ -19,6 +20,7 @@ class Application(tornado.web.Application):
             (r"/delete/status/(.*)/([0-9]+)/", DeleteHandler),  #GET retrieve post delete status
             (r"/post/post/(-1)/", PostHandler),                 #GET or POST create single post
             (r"/post/post/([0-9]+)/", PostHandler),             #GET or POST update single post
+            (r"/(.*)", NotFoundHandler),                        #404 links and everything else
         ];
         settings = dict(
             template_path=os.path.join(os.path.dirname(__file__), "View"),
