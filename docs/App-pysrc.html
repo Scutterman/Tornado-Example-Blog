@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>App</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Scutterman/Tornado-Example-Blog">Tornado Blog</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;App
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="App-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="App-module.html">Module App</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">ioloop</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">web</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">httpserver</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">BaseHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">BaseHandler</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">NotFoundHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">NotFoundHandler</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">IndexHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">IndexHandler</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">ViewHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ViewHandler</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">PostHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">PostHandler</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Controller</tt><tt class="py-op">.</tt><tt class="py-name">DeleteHandler</tt> <tt class="py-keyword">import</tt> <tt class="py-name">DeleteHandler</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Module</tt><tt class="py-op">.</tt><tt class="py-name">SinglePost</tt><tt class="py-op">.</tt><tt class="py-name">SinglePost</tt> <tt class="py-keyword">import</tt> <tt class="py-name">SinglePost</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="Application"></a><div id="Application-def"><a name="L15"></a><tt class="py-lineno">15</tt> <a class="py-toggle" href="#" id="Application-toggle" onclick="return toggle('Application');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="App.Application-class.html">Application</a><tt class="py-op">(</tt><tt class="py-base-class">tornado</tt><tt class="py-op">.</tt><tt class="py-base-class">web</tt><tt class="py-op">.</tt><tt class="py-base-class">Application</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Application-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Application-expanded"><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        This is the entry point for the app.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        The Tornado docs show initialising it a slightly different way, but I couldn't get the settings to register that way.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        It might have been me mistaking the syntax, but this way definitely works.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">        Set up the Handlers (these would be the Controllers in an MVC app) here, as well as app settings.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">        An instance of this app is used to start the Tornado web server (see below)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar handlers: These are the request handlers.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">        When a URL request comes in, it is compared against this regular expressions in the list and.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">        If the url matches a pattern, the specified L{tornado.web.RequestHandler} subclass is used for the request.</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        RequestHandlers are selected as first-come, first-served. As soon as a match is found, that handler is used and the app doesn't try to match further RequestHandlers.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">        I just used the pattern and handler parts of URLSpec, but there's also kwargs and name paramaters that you might want to check out.</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">        These are all subclasses of L{BaseHandler}, which is a subclass of L{tornado.web.RequestHandler}</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">        These subclasses define the methods that the subclass can handle (get, post, etc.).</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">        This is important if you don't want the app throwing a 405 Method Not Allowed http error.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">        @type handlers: [L{tornado.web.URLSpec}]</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">        @ivar settings: These are settings for the Tornado app.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        I've included a few here, but a full list is avaliable at U{http://www.tornadoweb.org/en/stable/web.html#tornado.web.Application.settings}.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        This sets up:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">            - The default path for template/view files used to render pages</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring">            - A list of re-usable ui elements (UIModules).</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-docstring">            Each one is a Subclass of U{http://www.tornadoweb.org/en/stable/web.html#tornado.web.UIModule}</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-docstring">            - Cross Site Request Forgery protection (see U{http://www.tornadoweb.org/en/stable/guide/security.html?highlight=xsrf#cross-site-request-forgery-protection})</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-docstring">            - A ridiculously weak cookie secret key, you should change this. See (U{http://www.tornadoweb.org/en/stable/guide/security.html?highlight=xsrf#cookies-and-secure-cookies})</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">            - Turning debug mode on. This sets several other settings. Turn this off before going into production.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">        See U{http://www.tornadoweb.org/en/stable/guide/running.html#debug-mode-and-automatic-reloading}</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">        @type settings: dict</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">     </tt>
+<a name="Application.__init__"></a><div id="Application.__init__-def"><a name="L46"></a><tt class="py-lineno">46</tt> <a class="py-toggle" href="#" id="Application.__init__-toggle" onclick="return toggle('Application.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="App.Application-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Application.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Application.__init__-expanded"><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">         </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">handlers</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/"</tt><tt class="py-op">,</tt> <tt class="py-name">IndexHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>                               <tt class="py-comment">#GET retrieve all posts</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/get/post/([0-9]+)/"</tt><tt class="py-op">,</tt> <tt class="py-name">ViewHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>              <tt class="py-comment">#GET retrieve single post</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/delete/post/([0-9]+)/"</tt><tt class="py-op">,</tt> <tt class="py-name">DeleteHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>         <tt class="py-comment">#POST delete single post</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/delete/status/(.*)/([0-9]+)/"</tt><tt class="py-op">,</tt> <tt class="py-name">DeleteHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  <tt class="py-comment">#GET retrieve post delete status</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/post/post/(-1)/"</tt><tt class="py-op">,</tt> <tt class="py-name">PostHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>                 <tt class="py-comment">#GET or POST create single post</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/post/post/([0-9]+)/"</tt><tt class="py-op">,</tt> <tt class="py-name">PostHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>             <tt class="py-comment">#GET or POST update single post</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-op">(</tt><tt class="py-string">r"/(.*)"</tt><tt class="py-op">,</tt> <tt class="py-name">NotFoundHandler</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>                        <tt class="py-comment">#404 links and everything else</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-op">]</tt><tt class="py-op">;</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">         </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-name">settings</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt class="py-name">template_path</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"View"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-name">ui_modules</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-string">"SinglePost"</tt><tt class="py-op">:</tt> <tt class="py-name">SinglePost</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt class="py-name">xsrf_cookies</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">            <tt class="py-name">cookie_secret</tt><tt class="py-op">=</tt><tt class="py-string">"Swordfish"</tt><tt class="py-op">,</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt class="py-name">debug</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">         </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-comment"># Initialize the app, passing in the handlers and settings.</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-0" class="py-name" targets="Class App.Application=App.Application-class.html"><a title="App.Application" class="py-name" href="#" onclick="return doclink('link-0', 'Application', 'link-0');">Application</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method App.Application.__init__()=App.Application-class.html#__init__"><a title="App.Application.__init__" class="py-name" href="#" onclick="return doclink('link-1', '__init__', 'link-1');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">handlers</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">settings</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"><tt class="py-string">    This is how you start the tornado web server.</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"><tt class="py-string">    Use L{tornado.web.httpserver.HTTPServer(L{tornado.web.Application})&lt;tornado.web.httpserver.HTTPServer&gt;} to get a reference to the server.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"><tt class="py-string">    That can be told to listen on a port, which will happen at regular intervals after you call L{tornado.ioloop.IOLoop.instance().start()}</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"><tt class="py-string">"""</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-name">app</tt> <tt class="py-op">=</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">httpserver</tt><tt class="py-op">.</tt><tt class="py-name">HTTPServer</tt><tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="App.Application" class="py-name" href="#" onclick="return doclink('link-2', 'Application', 'link-0');">Application</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">    <tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">listen</tt><tt class="py-op">(</tt><tt class="py-number">8888</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">ioloop</tt><tt class="py-op">.</tt><tt class="py-name">IOLoop</tt><tt class="py-op">.</tt><tt class="py-name">instance</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">start</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">KeyboardInterrupt</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">ioloop</tt><tt class="py-op">.</tt><tt class="py-name">IOLoop</tt><tt class="py-op">.</tt><tt class="py-name">instance</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">stop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Scutterman/Tornado-Example-Blog">Tornado Blog</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jan 05 21:27:47 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

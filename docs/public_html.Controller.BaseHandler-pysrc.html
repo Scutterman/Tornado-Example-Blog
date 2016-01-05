@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>public_html.Controller.BaseHandler</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="public_html-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="public_html-module.html">Package&nbsp;public_html</a> ::
+        <a href="public_html.Controller-module.html">Package&nbsp;Controller</a> ::
+        Module&nbsp;BaseHandler
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="public_html.Controller.BaseHandler-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="public_html.Controller.BaseHandler-module.html">Module public_html.Controller.BaseHandler</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">web</tt><tt class="py-op">;</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">tornado</tt> <tt class="py-keyword">import</tt> <tt class="py-name">gen</tt><tt class="py-op">;</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">concurrent</tt><tt class="py-op">.</tt><tt class="py-name">futures</tt><tt class="py-op">;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="BaseHandler"></a><div id="BaseHandler-def"><a name="L5"></a><tt class="py-lineno"> 5</tt> <a class="py-toggle" href="#" id="BaseHandler-toggle" onclick="return toggle('BaseHandler');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="public_html.Controller.BaseHandler.BaseHandler-class.html">BaseHandler</a><tt class="py-op">(</tt><tt class="py-base-class">tornado</tt><tt class="py-op">.</tt><tt class="py-base-class">web</tt><tt class="py-op">.</tt><tt class="py-base-class">RequestHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseHandler-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="BaseHandler-expanded"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">        This is the base class for all of the L{Request Handlers&lt;tornado.web.RequestHandler&gt;} used by the app.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">        It supplies a L{concurrent.futures.ThreadPoolExecutor} and handles http errors in L{write_error}</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">        @cvar thread_pool: To be used by subclasses when they need to execute synchronous code during a co-routine.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">        @type thread_pool: L{concurrent.futures.ThreadPoolExecutor}</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">        @cvar status_messages_4xx: A dictionary of status messages to use for when a http status error is raised.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        @type status_messages_4xx: L{dict}</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">        @cvar status_messages_5xx: A dictionary of status messages to use for when a http status error is raised.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        @type status_messages_5xx: L{dict}</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable public_html.Controller.BaseHandler.BaseHandler.thread_pool=public_html.Controller.BaseHandler.BaseHandler-class.html#thread_pool"><a title="public_html.Controller.BaseHandler.BaseHandler.thread_pool" class="py-name" href="#" onclick="return doclink('link-0', 'thread_pool', 'link-0');">thread_pool</a></tt> <tt class="py-op">=</tt> <tt class="py-name">concurrent</tt><tt class="py-op">.</tt><tt class="py-name">futures</tt><tt class="py-op">.</tt><tt class="py-name">ThreadPoolExecutor</tt><tt class="py-op">(</tt><tt class="py-number">4</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">     </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable public_html.Controller.BaseHandler.BaseHandler.status_messages_4xx=public_html.Controller.BaseHandler.BaseHandler-class.html#status_messages_4xx"><a title="public_html.Controller.BaseHandler.BaseHandler.status_messages_4xx" class="py-name" href="#" onclick="return doclink('link-1', 'status_messages_4xx', 'link-1');">status_messages_4xx</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-number">401</tt><tt class="py-op">:</tt> <tt class="py-string">'Please log in and try again.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-number">403</tt><tt class="py-op">:</tt> <tt class="py-string">'You don\'t have access to that.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-number">404</tt><tt class="py-op">:</tt> <tt class="py-string">'We can\'t find that, sorry.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-number">408</tt><tt class="py-op">:</tt> <tt class="py-string">'This is taking too long, but feel free to try again'</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-number">410</tt><tt class="py-op">:</tt> <tt class="py-string">'That isn\'t there any more.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-number">418</tt><tt class="py-op">:</tt> <tt class="py-string">'This kingdom runs on tea.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-number">426</tt><tt class="py-op">:</tt> <tt class="py-string">'You\'re old fashioned,'</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-number">429</tt><tt class="py-op">:</tt> <tt class="py-string">'Slow Down!'</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-number">451</tt><tt class="py-op">:</tt> <tt class="py-string">'Somebody doesn\'t want you to see this...'</tt><tt class="py-op">,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-op">}</tt><tt class="py-op">;</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">     </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable public_html.Controller.BaseHandler.BaseHandler.status_messages_5xx=public_html.Controller.BaseHandler.BaseHandler-class.html#status_messages_5xx"><a title="public_html.Controller.BaseHandler.BaseHandler.status_messages_5xx" class="py-name" href="#" onclick="return doclink('link-2', 'status_messages_5xx', 'link-2');">status_messages_5xx</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-number">500</tt><tt class="py-op">:</tt> <tt class="py-string">'It\'s broken, bear with us'</tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-number">503</tt><tt class="py-op">:</tt> <tt class="py-string">'We\'re a bit overwhelmed at the moment, try again soon.'</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-op">}</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">     </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-comment"># Handle Errors</tt> </tt>
+<a name="BaseHandler.write_error"></a><div id="BaseHandler.write_error-def"><a name="L40"></a><tt class="py-lineno">40</tt> <a class="py-toggle" href="#" id="BaseHandler.write_error-toggle" onclick="return toggle('BaseHandler.write_error');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.BaseHandler.BaseHandler-class.html#write_error">write_error</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">status_code</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseHandler.write_error-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="BaseHandler.write_error-expanded"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">            Handles http status errors that get raised by the application.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">            </tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-docstring">            Overrides L{RequestHandler.write_error}</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">            </tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring">            @param status_code: The http status code that was raised.</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring">            @type status_code: integer</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring">            </tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">            @param **kwargs: other arguments (see U{http://www.tornadoweb.org/en/stable/web.html#tornado.web.RequestHandler.write_error} for details)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">            @type **kwargs: dict</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">         </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-comment"># A message to pass to the view template</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt><tt class="py-op">;</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">         </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-comment"># Get the first digit of the status code. This will determine the type of code that's been raised.</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-name">firstDigit</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">status_code</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">         </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-comment"># Set the correct message based on the first digit of the code</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">         </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-comment"># 1xx - Informational</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">firstDigit</tt> <tt class="py-keyword">is</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-string">"As you were."</tt><tt class="py-op">;</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-comment"># 2xx - Request successful</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">firstDigit</tt> <tt class="py-keyword">is</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-string">"We did it!"</tt><tt class="py-op">;</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-comment"># 3xx - Redirect</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">firstDigit</tt> <tt class="py-keyword">is</tt> <tt class="py-number">3</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-string">"Time to go..."</tt><tt class="py-op">;</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-comment"># 4xx - Request error</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">firstDigit</tt> <tt class="py-keyword">is</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Module public_html.Controller.BaseHandler=public_html.Controller.BaseHandler-module.html,Class public_html.Controller.BaseHandler.BaseHandler=public_html.Controller.BaseHandler.BaseHandler-class.html"><a title="public_html.Controller.BaseHandler
+public_html.Controller.BaseHandler.BaseHandler" class="py-name" href="#" onclick="return doclink('link-3', 'BaseHandler', 'link-3');">BaseHandler</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="public_html.Controller.BaseHandler.BaseHandler.status_messages_4xx" class="py-name" href="#" onclick="return doclink('link-4', 'status_messages_4xx', 'link-1');">status_messages_4xx</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method public_html.Controller.DeleteHandler.DeleteHandler.get()=public_html.Controller.DeleteHandler.DeleteHandler-class.html#get,Method public_html.Controller.IndexHandler.IndexHandler.get()=public_html.Controller.IndexHandler.IndexHandler-class.html#get,Method public_html.Controller.NotFoundHandler.NotFoundHandler.get()=public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#get,Method public_html.Controller.PostHandler.PostHandler.get()=public_html.Controller.PostHandler.PostHandler-class.html#get,Method public_html.Controller.ViewHandler.ViewHandler.get()=public_html.Controller.ViewHandler.ViewHandler-class.html#get"><a title="public_html.Controller.DeleteHandler.DeleteHandler.get
+public_html.Controller.IndexHandler.IndexHandler.get
+public_html.Controller.NotFoundHandler.NotFoundHandler.get
+public_html.Controller.PostHandler.PostHandler.get
+public_html.Controller.ViewHandler.ViewHandler.get" class="py-name" href="#" onclick="return doclink('link-5', 'get', 'link-5');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-string">'Something went wrong.'</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">        <tt class="py-comment"># 5xx - Server error</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">firstDigit</tt> <tt class="py-keyword">is</tt> <tt class="py-number">5</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="public_html.Controller.BaseHandler
+public_html.Controller.BaseHandler.BaseHandler" class="py-name" href="#" onclick="return doclink('link-6', 'BaseHandler', 'link-3');">BaseHandler</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="public_html.Controller.BaseHandler.BaseHandler.status_messages_5xx" class="py-name" href="#" onclick="return doclink('link-7', 'status_messages_5xx', 'link-2');">status_messages_5xx</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="public_html.Controller.DeleteHandler.DeleteHandler.get
+public_html.Controller.IndexHandler.IndexHandler.get
+public_html.Controller.NotFoundHandler.NotFoundHandler.get
+public_html.Controller.PostHandler.PostHandler.get
+public_html.Controller.ViewHandler.ViewHandler.get" class="py-name" href="#" onclick="return doclink('link-8', 'get', 'link-5');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">status_code</tt><tt class="py-op">,</tt> <tt class="py-string">'it\'s brokeded.'</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-comment"># Everything else</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-string">"Well that's strange."</tt><tt class="py-op">;</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">         </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-comment"># Set response header</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">set_header</tt><tt class="py-op">(</tt><tt class="py-string">'Content-Type'</tt><tt class="py-op">,</tt> <tt class="py-string">'text/html'</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">         </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-comment"># Render the template view for errors, pass in the page title and message to display.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method public_html.Module.SinglePost.SinglePost.SinglePost.render()=public_html.Module.SinglePost.SinglePost.SinglePost-class.html#render"><a title="public_html.Module.SinglePost.SinglePost.SinglePost.render" class="py-name" href="#" onclick="return doclink('link-9', 'render', 'link-9');">render</a></tt><tt class="py-op">(</tt><tt class="py-string">'error.html'</tt><tt class="py-op">,</tt> <tt class="py-name">page_title</tt><tt class="py-op">=</tt><tt class="py-name">message</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">=</tt><tt class="py-name">message</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+</div></div><a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="public_html-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Jan 05 22:23:52 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
