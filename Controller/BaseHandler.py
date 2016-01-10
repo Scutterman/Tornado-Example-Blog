@@ -36,7 +36,6 @@ class BaseHandler(tornado.web.RequestHandler):
         503: 'We\'re a bit overwhelmed at the moment, try again soon.',
     }
     
-    # Handle Errors
     def write_error(self, status_code, **kwargs):
         """
             Handles http status errors that get raised by the application.
@@ -46,8 +45,8 @@ class BaseHandler(tornado.web.RequestHandler):
             @param status_code: The http status code that was raised.
             @type status_code: integer
             
-            @param **kwargs: other arguments (see U{http://www.tornadoweb.org/en/stable/web.html#tornado.web.RequestHandler.write_error} for details)
-            @type **kwargs: dict
+            @param kwargs: other arguments (see U{http://www.tornadoweb.org/en/stable/web.html#tornado.web.RequestHandler.write_error} for details)
+            @type kwargs: dict
         """
         
         # A message to pass to the view template

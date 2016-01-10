@@ -63,15 +63,36 @@ public_html.Controller.BaseHandler.BaseHandler" class="py-name" href="#" onclick
 public_html.Controller.BaseHandler.BaseHandler" class="py-name" href="#" onclick="return doclink('link-1', 'BaseHandler', 'link-0');">BaseHandler</a></tt><tt class="py-op">;</tt> </tt>
 <a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
 <a name="NotFoundHandler"></a><div id="NotFoundHandler-def"><a name="L4"></a><tt class="py-lineno"> 4</tt> <a class="py-toggle" href="#" id="NotFoundHandler-toggle" onclick="return toggle('NotFoundHandler');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html">NotFoundHandler</a><tt class="py-op">(</tt><tt class="py-base-class">BaseHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="NotFoundHandler-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NotFoundHandler-expanded"><a name="NotFoundHandler.prepare"></a><div id="NotFoundHandler.prepare-def"><a name="L5"></a><tt class="py-lineno"> 5</tt> <a class="py-toggle" href="#" id="NotFoundHandler.prepare-toggle" onclick="return toggle('NotFoundHandler.prepare');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#prepare">prepare</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="NotFoundHandler.prepare-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.prepare-expanded"><a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">web</tt><tt class="py-op">.</tt><tt class="py-name">HTTPError</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">,</tt> <tt class="py-string">"Page Not Found"</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
-</div><a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line">     </tt>
-<a name="NotFoundHandler.get"></a><div id="NotFoundHandler.get-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="NotFoundHandler.get-toggle" onclick="return toggle('NotFoundHandler.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="NotFoundHandler.get-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.get-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt><tt class="py-op">;</tt> </tt>
-</div><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">     </tt>
-<a name="NotFoundHandler.post"></a><div id="NotFoundHandler.post-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="NotFoundHandler.post-toggle" onclick="return toggle('NotFoundHandler.post');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#post">post</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="NotFoundHandler.post-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.post-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
-</div></div><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+</div><div id="NotFoundHandler-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NotFoundHandler-expanded"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">        Handles requests to parameters that haven't been programmed into the App (404 errors).</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">     </tt>
+<a name="NotFoundHandler.prepare"></a><div id="NotFoundHandler.prepare-def"><a name="L9"></a><tt class="py-lineno"> 9</tt> <a class="py-toggle" href="#" id="NotFoundHandler.prepare-toggle" onclick="return toggle('NotFoundHandler.prepare');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#prepare">prepare</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NotFoundHandler.prepare-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.prepare-expanded"><a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">            This is called before any of the HTTP Method methods.</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">            It's supposed to be used to prepare the Handler for dealing with the requests, but we'll use it to raise the HTTP 404 Status.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">            The 404 is then dealt with in the L{BaseHandler} that this class extends.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">tornado</tt><tt class="py-op">.</tt><tt class="py-name">web</tt><tt class="py-op">.</tt><tt class="py-name">HTTPError</tt><tt class="py-op">(</tt><tt class="py-number">404</tt><tt class="py-op">,</tt> <tt class="py-string">"Page Not Found"</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> </tt>
+</div><a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">     </tt>
+<a name="NotFoundHandler.get"></a><div id="NotFoundHandler.get-def"><a name="L17"></a><tt class="py-lineno">17</tt> <a class="py-toggle" href="#" id="NotFoundHandler.get-toggle" onclick="return toggle('NotFoundHandler.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NotFoundHandler.get-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.get-expanded"><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">            This must be implemented, otherwise the error will be changed to 405 (method unavailable) for 404 GET requests.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">            </tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">            @param url: The url that wasn't successfully matched.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">            @type url: string</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt><tt class="py-op">;</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">     </tt>
+<a name="NotFoundHandler.post"></a><div id="NotFoundHandler.post-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="NotFoundHandler.post-toggle" onclick="return toggle('NotFoundHandler.post');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="public_html.Controller.NotFoundHandler.NotFoundHandler-class.html#post">post</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NotFoundHandler.post-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="NotFoundHandler.post-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">            This must be implemented, otherwise the error will be changed to 405 (method unavailable) for 404 POST requests.</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">            </tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">            @param url: The url that wasn't successfully matched.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">            @type url: string</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt><tt class="py-op">;</tt> </tt>
+</div></div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -104,7 +125,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Jan 05 22:23:52 2016
+    Generated by Epydoc 3.0.1 on Sun Jan 10 21:31:51 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

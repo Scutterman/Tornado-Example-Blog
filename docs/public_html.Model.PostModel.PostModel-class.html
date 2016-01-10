@@ -58,6 +58,11 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class PostModel</h1><p class="nomargin-top"><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel">source&nbsp;code</a></span></p>
+<p>This is the data model that handles the static methods used for CRUD 
+  of blog posts. It also can be initialised with a post id and acts as a 
+  container for the blog post, allowing the user to get the post id, title,
+  and text</p>
+
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
@@ -81,9 +86,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">db</span>,
-        <span class="summary-sig-arg">id</span>)</span></td>
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Populate the instance variables with the values connected with the 
+      post id that is passed in.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.__init__">source&nbsp;code</a></span>
             
@@ -95,11 +102,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="getId"></a><span class="summary-sig-name">getId</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#getId" class="summary-sig-name">getId</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns:
+      The id of the instanced post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getId">source&nbsp;code</a></span>
             
@@ -111,11 +120,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="getTitle"></a><span class="summary-sig-name">getTitle</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#getTitle" class="summary-sig-name">getTitle</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns:
+      The title of the instanced post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getTitle">source&nbsp;code</a></span>
             
@@ -127,11 +138,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="getText"></a><span class="summary-sig-name">getText</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#getText" class="summary-sig-name">getText</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns:
+      The main content of the instanced post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getText">source&nbsp;code</a></span>
             
@@ -161,11 +174,12 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">list[PostModel]</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="getAllPosts"></a><span class="summary-sig-name">getAllPosts</span>(<span class="summary-sig-arg">db</span>)</span></td>
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#getAllPosts" class="summary-sig-name">getAllPosts</a>(<span class="summary-sig-arg">db</span>)</span><br />
+      Fetch all of the posts.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getAllPosts">source&nbsp;code</a></span>
             
@@ -177,13 +191,14 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="createPost"></a><span class="summary-sig-name">createPost</span>(<span class="summary-sig-arg">db</span>,
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#createPost" class="summary-sig-name">createPost</a>(<span class="summary-sig-arg">db</span>,
         <span class="summary-sig-arg">title</span>,
-        <span class="summary-sig-arg">text</span>)</span></td>
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Create a new blog post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.createPost">source&nbsp;code</a></span>
             
@@ -195,14 +210,15 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int | None</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="updatePost"></a><span class="summary-sig-name">updatePost</span>(<span class="summary-sig-arg">db</span>,
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#updatePost" class="summary-sig-name">updatePost</a>(<span class="summary-sig-arg">db</span>,
         <span class="summary-sig-arg">id</span>,
         <span class="summary-sig-arg">title</span>,
-        <span class="summary-sig-arg">text</span>)</span></td>
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Update a blog post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.updatePost">source&nbsp;code</a></span>
             
@@ -214,12 +230,13 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="deletePost"></a><span class="summary-sig-name">deletePost</span>(<span class="summary-sig-arg">db</span>,
-        <span class="summary-sig-arg">id</span>)</span></td>
+          <td><span class="summary-sig"><a href="public_html.Model.PostModel.PostModel-class.html#deletePost" class="summary-sig-name">deletePost</a>(<span class="summary-sig-arg">db</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Delete a blog post.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.deletePost">source&nbsp;code</a></span>
             
@@ -249,41 +266,297 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="id"></a><span class="summary-name">id</span> = <code title="-1">-1</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="title"></a><span class="summary-name">title</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="text"></a><span class="summary-name">text</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">defaultdic(list)</span>
     </td><td class="summary">
         <a href="public_html.Model.PostModel.PostModel-class.html#posts" class="summary-name">posts</a> = <code title="defaultdict(&lt;type 'list'&gt;, {1: ['Post 1', 'Text 1'], 2: ['Post 2', 'Te\
-xt 2'], 3: ['Post 3', 'Text 3'], 4: ['Post 4', 'Text 4']})">defaultdict(&lt;type 'list'&gt;, {1: ['Post 1', 'Text 1'], 2<code class="variable-ellipsis">...</code></code>
+xt 2'], 3: ['Post 3', 'Text 3'], 4: ['Post 4', 'Text 4']})">defaultdict(&lt;type 'list'&gt;, {1: ['Post 1', 'Text 1'], 2<code class="variable-ellipsis">...</code></code><br />
+      A dictionary of the blog posts.
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
-        <a name="nextPostId"></a><span class="summary-name">nextPostId</span> = <code title="5">5</code>
+        <a href="public_html.Model.PostModel.PostModel-class.html#nextPostId" class="summary-name">nextPostId</a> = <code title="5">5</code><br />
+      Represents the id that will be used the next time a post is created.
     </td>
   </tr>
 </table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="id"></a><span class="summary-name">id</span> = <code title="-1">-1</code><br />
+      The blog post id
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+        <a name="title"></a><span class="summary-name">title</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code><br />
+      The blog post title
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+        <a name="text"></a><span class="summary-name">text</span> = <code title="''"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></code><br />
+      The main content of the blog post
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">db</span>,
+        <span class="sig-arg">id</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Populate the instance variables with the values connected with the 
+  post id that is passed in.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (None) - Not currently used. Was intended to point to a database that held
+          the posts, but I got lazy and stored the posts in a class 
+          variable instead.</li>
+        <li><strong class="pname"><code>id</code></strong> (int) - The id of the post to fetch the values for.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getId"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getId</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getId">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Returns: int</dt>
+        <dd>The id of the instanced post. Will always be &gt;= 1 if the class
+          initialized properly.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getTitle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getTitle</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getTitle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>The title of the instanced post.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getText</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>The main content of the instanced post.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getAllPosts"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getAllPosts</span>(<span class="sig-arg">db</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.getAllPosts">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Fetch all of the posts.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (None) - Not currently used.</li>
+    </ul></dd>
+    <dt>Returns: list[PostModel]</dt>
+        <dd>A list of PostModel objects representing the individual blog 
+          posts.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="createPost"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">createPost</span>(<span class="sig-arg">db</span>,
+        <span class="sig-arg">title</span>,
+        <span class="sig-arg">text</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.createPost">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a new blog post.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (None) - Not currently used.</li>
+        <li><strong class="pname"><code>title</code></strong> (string) - The post title.</li>
+        <li><strong class="pname"><code>text</code></strong> (string) - The main content of the blog post.</li>
+    </ul></dd>
+    <dt>Returns: int</dt>
+        <dd>The post id of the new post.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="updatePost"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">updatePost</span>(<span class="sig-arg">db</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">title</span>,
+        <span class="sig-arg">text</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.updatePost">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update a blog post.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (None) - Not currently used.</li>
+        <li><strong class="pname"><code>id</code></strong> (int) - The id of the post that will be updated.</li>
+        <li><strong class="pname"><code>title</code></strong> (string) - The new post title.</li>
+        <li><strong class="pname"><code>text</code></strong> (string) - The new content of the blog post.</li>
+    </ul></dd>
+    <dt>Returns: int | None</dt>
+        <dd>Either the post id (successful update), or None (unsuccessful 
+          update)</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="deletePost"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">deletePost</span>(<span class="sig-arg">db</span>,
+        <span class="sig-arg">id</span>)</span>
+    <br /><em class="fname">Static Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="public_html.Model.PostModel-pysrc.html#PostModel.deletePost">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Delete a blog post.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>db</code></strong> (None) - Not currently used.</li>
+        <li><strong class="pname"><code>id</code></strong> (int) - The id of the post that will be deleted.</li>
+    </ul></dd>
+    <dt>Returns: string</dt>
+        <dd>A string relating to the status of the delete, either 
+          &quot;successful&quot;, &quot;not successful&quot;, or 
+          &quot;keyerror&quot;.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
 <!-- ==================== CLASS VARIABLE DETAILS ==================== -->
 <a name="section-ClassVariableDetails"></a>
 <table class="details" border="1" cellpadding="3"
@@ -308,14 +581,41 @@ xt 2'], 3: ['Post 3', 'Text 3'], 4: ['Post 4', 'Text 4']})">defaultdict(&lt;type
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">posts</h3>
-  
+  A dictionary of the blog posts. Each post is represented by a list 
+  containing the title in index 0 and the text in index 1. The dictionary 
+  key represents the post id.
   <dl class="fields">
+    <dt>Type:</dt>
+      <dd>defaultdic(list)</dd>
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 defaultdict(&lt;type 'list'&gt;, {1: ['Post 1', 'Text 1'], 2: ['Post 2', 'Te<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 xt 2'], 3: ['Post 3', 'Text 3'], 4: ['Post 4', 'Text 4']})
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="nextPostId"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">nextPostId</h3>
+  Represents the id that will be used the next time a post is created. This
+  just makes it easier to manage the blog when posts start getting created 
+  / deleted. This is automatically incremented when a new post is created, 
+  so it's always accurate.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+5
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -348,7 +648,7 @@ xt 2'], 3: ['Post 3', 'Text 3'], 4: ['Post 4', 'Text 4']})
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Jan 05 22:23:52 2016
+    Generated by Epydoc 3.0.1 on Sun Jan 10 21:31:51 2016
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
